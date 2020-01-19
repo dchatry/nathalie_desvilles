@@ -1,0 +1,64 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/*
+ * Fonts.
+ */
+@font-face {
+  font-family: 'PT Sans';
+  src: url("../fonts/PTSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: 'Gelasio';
+  src: url("../fonts/Gelasio-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Gelasio';
+  src: url("../fonts/Gelasio-Semibold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Gelasio';
+  src: url("../fonts/Gelasio-Italic.ttf");
+  font-style: italic;
+}
+
+li {
+  transition: all 0.3s;
+}
+
+.h-screen-80 {
+  height: 80vh;
+}
+
+.title {
+  font-family: 'PT Sans';
+  font-size: 2.5rem;
+}
+
+.intro-image {
+    background-image: url("../img/intro.jpg");
+    background-size: cover;
+    clip-path: url(#svgPath);
+}
+
+.dots {
+  background-image: radial-gradient(#CCC 1px, transparent 0);
+  background-size: 10px 10px;
+  background-position: -19px -19px;
+}
+
+.glide__slide {
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+.glide__slide--active {
+  opacity: 1;
+}

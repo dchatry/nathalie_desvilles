@@ -1,0 +1,22 @@
+{
+  "name": "nathalie-desvilles",
+  "version": "1.0.0",
+  "description": "Site internet de présentation",
+  "private": true,
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "tailwindcss": "^1.1.4",
+    "typed.js": "^2.0.11",
+    "typeit": "^6.1.1",
+    "underscore": "^1.9.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Damien Chatry",
+  "license": "ISC"
+}
