@@ -21,7 +21,14 @@ module.exports = {
       'serif': ['Gelasio', 'Georgia', 'Cambria'],
       'display': ['PT\\ Sans'],
     },
-    extend: {}
+    variants: {
+      translate: ['hover', 'group-hover'],
+    },
+    extend: {
+      boxShadow: {
+        huge: '0 30px 60px -15px rgba(0, 0, 0, .50)'
+      }
+    }
   },
   variants: {},
   plugins: []
