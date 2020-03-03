@@ -9,7 +9,13 @@
  */
 @font-face {
   font-family: 'PT Sans';
+  font-weight: 600;
   src: url("./fonts/PTSans-Bold.ttf");
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-weight: 500;
+  src: url("./fonts/PTSans-Regular.ttf");
 }
 
 @font-face {
@@ -29,6 +35,13 @@
   font-style: italic;
 }
 
+a.link {
+  text-decoration-thickness: .125em;
+  text-underline-offset: 1.5px;
+  text-decoration: underline;
+  @apply text-blue-600;
+}
+
 li {
 }
 
@@ -36,7 +49,7 @@ li {
   height: 80vh;
 }
 
-.title {
+.title  {
   font-family: 'PT Sans';
   font-size: 2.5rem;
   position: relative;
@@ -87,22 +100,9 @@ li {
 }
 
 .background-english {
-  
-  height: 100vh;
-  margin: 0;
-  background: blue;
-}
-
-.background-english:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -250px;
-  width: 500px;
-  background: url('./img/langues/anglais-sombre.png');
-  background-size: cover;
-  transform: skew(-30deg);
+  clip-path: polygon(
+    0 0, 100% 0%, 80% 100%, 0% 100%
+  );
 }
 
 
@@ -129,12 +129,13 @@ li {
 
 .modal__container {
   @apply rounded-lg;
+  position: relative;
   background-color: transparent;
   padding: 0px;
   height: 75vh;
   min-height: 75vh;
   width: 80%;
-  overflow: hidden;
+  overflow: auto;
   box-sizing: border-box;
 }
 

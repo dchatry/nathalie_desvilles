@@ -14,15 +14,14 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
       '8xl': '6rem',
-      'hero': '8rem',
+    },
+    inset: {
+      '-8': '-2rem',
     },
     fontFamily: {
-      'sans': ['-apple-system'],
+      'sans': ['PT\\ Sans', '-apple-system'],
       'serif': ['Gelasio', 'Georgia', 'Cambria'],
       'display': ['PT\\ Sans'],
-    },
-    variants: {
-      translate: ['hover', 'group-hover'],
     },
     extend: {
       boxShadow: {
@@ -31,5 +30,7 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: []
+  plugins: [
+    require('@tailwindcss/ui')
+  ]
 }

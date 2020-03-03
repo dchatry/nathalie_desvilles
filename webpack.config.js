@@ -18,6 +18,16 @@ module.exports = {
         ],
       },
       {
+        test: /\.(jpg|png|gif)$/,
+          use: {
+              loader: 'url-loader',
+              options: {
+                  fallback: 'file-loader',
+                  name: '[name].[ext]'
+              }
+          }
+      },
+      {
         test: /\.(ttf|eot|svg|gif|png|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         include: path.resolve(__dirname),
         use: [{

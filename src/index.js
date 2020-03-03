@@ -23,9 +23,7 @@ new Glide('.glide', {
   startAt: 0,
   autoplay: 7000,
   focusAt: 'center',
-  perView: 2,
-  gap: 20,
-  peek: 220
+  perView: 1,
 })
 .mount();
 
@@ -37,7 +35,7 @@ var greetings = [
   "¡Buenos días!",
 ];
 
-var typeIt = new TypeIt('.text-hero', {
+var typeIt = new TypeIt('.text-hello', {
   lifeLike: true,
   loop: true,
   speed: 140,
