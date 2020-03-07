@@ -1,23 +1,20 @@
 import "../styles.css"
 import $ from "jquery";
-import MicroModal from 'micromodal';
 import Glide from '@glidejs/glide'
 import TypeIt from 'typeit';
 import { shuffle } from 'underscore'
 
-MicroModal.init({
-  disableScroll: true,
-  onShow: function(modal) {
-        console.log("micromodal open");
-        addModalContentHeight('short');
-        /**************************
-          For full screen scrolling modal, 
-          uncomment line below & comment line above
-         **************************/
-        //addModalContentHeight('tall');
-      },
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top - 100
+    }, 1000);
 });
 
+/*
+ * Carousel.
+ */
 new Glide('.glide', {
   type: 'carousel',
   startAt: 0,
@@ -27,6 +24,9 @@ new Glide('.glide', {
 })
 .mount();
 
+/*
+ * Greetings.
+ */
 var greetings = [
   "Hi!",
   "Hello!",
@@ -54,57 +54,35 @@ for (var s in sentences) {
 
 typeIt.go();
 
+/*
+ * Animations.
+ */
+var element = document.getElementById('flag-animate');
+var elementHeight = element.clientHeight;
 
+document.addEventListener('scroll', animate);
 
-function addModalContentHeight(type) {
-  var type = (arguments[0] != null) ? arguments[0] : 'short';
-  var modalContainer = $("#modal-container");
-  var modalHeader = $("#modal-header");
-  var modalContentContent = $("#modal-content-content");
-  var modalContent = $("#modal-content");
-  var modalFooter = $("#modal-footer");
+// check if element is in view
+function inView() {
+  var windowHeight = window.innerHeight;
+  var scrollY = window.scrollY || window.pageYOffset;
+  var scrollPosition = scrollY + windowHeight;
+  var elementPosition = element.getBoundingClientRect().top + scrollY + elementHeight;
 
-  var modalIsDefined =
-    modalContainer.length &&
-    modalHeader.length && 
-    modalContent.length &&
-    modalFooter.length;
-
-  if (modalIsDefined) {
-    var modalContainerHeight = modalContainer.outerHeight();
-    var modalHeaderHeight = modalHeader.outerHeight();
-    var modalFooterHeight = modalFooter.outerHeight();
-
-    console.log("modalContainerHeight: ", modalContainerHeight);
-    console.log("modalHeaderHeight: ", modalHeaderHeight);
-    console.log("modalFooterHeight: ", modalFooterHeight);
-    
-    var offset = 80;
-    
-    var height = modalContainerHeight - (modalHeaderHeight + modalFooterHeight + offset);
-    
-    console.log('height: ',height);
-    
-    if(!isNaN(height)){
-      height = height > 0 ? height: 20;
-      if(type == 'short'){
-        modalContent.css({'height': height + 'px'});
-      }
-      else{
-        modalContainer.css({'height': '100%', 'overflow-y': 'hidden', 'margin-top': '40px'});
-        modalContentContent.css({'height': '100%', 'overflow-y': 'auto'});
-        modalContent.css({'overflow-y': 'visible'});
-        modalFooter.css({'margin-bottom': '120px'});
-      }
-      setTimeout(function(){
-        modalContent.css({'display': 'block'});
-        var modalContentDOM = document.querySelector('#modal-content');
-        modalContentDOM.scrollTop = 0;
-      });
-    }
-    
+  if (scrollPosition - 200 > elementPosition) {
+    return true;
   }
   
+  return false;
+}
+
+function animate() {
+  if (inView()) {
+    var flags = document.getElementsByClassName('flag-animate');
+    for (var i = 0; i < flags.length; i++) {
+       flags.item(i).classList.add('animate');
+    }
+  }
 }
 
 

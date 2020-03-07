@@ -6,6 +6,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "@tailwindcss/ui": "^0.1.2",
+    "animated-scroll-to": "^2.0.5",
     "autoprefixer": "^9.7.4",
     "jquery": "^3.4.1",
     "micromodal": "^0.4.2",

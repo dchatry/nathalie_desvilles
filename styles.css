@@ -35,6 +35,30 @@
   font-style: italic;
 }
 
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-6px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.bubble-language {
+  animation: float 4s ease-in-out infinite;
+}
+
+.bubble-es {
+  animation-delay: 1s;
+}
+.bubble-fr {
+  animation-delay: 1.2s;
+}
+
 a.link {
   text-decoration-thickness: .125em;
   text-underline-offset: 1.5px;
@@ -42,7 +66,37 @@ a.link {
   @apply text-blue-600;
 }
 
-li {
+.contact {
+  @apply bg-white;
+  @apply shadow-xl;
+  @apply p-8;
+  @apply rounded-lg;
+}
+
+.course {
+  @apply bg-white;
+  @apply shadow-lg;
+  @apply p-4;
+  @apply rounded-md;
+  @apply cursor-pointer;
+  @apply transition-all;
+  @apply duration-300;
+  @apply ease-in;
+  @apply transform;
+}
+
+.course:hover {
+  @apply -translate-y-1;
+  @apply shadow-xl;
+}
+
+.about {
+  @apply bg-white;
+  @apply shadow-xl;
+  @apply p-12;
+  @apply rounded-lg;
+  @apply transform;
+  @apply font-medium;
 }
 
 .h-screen-80 {
@@ -50,7 +104,7 @@ li {
 }
 
 .title  {
-  font-family: 'PT Sans';
+  font-family: 'PT Sans', 'sans-serif';
   font-size: 2.5rem;
   position: relative;
   z-index : 1;
@@ -85,6 +139,17 @@ li {
   opacity: 1;
 }
 
+.glide__arrow {
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity 150ms ease, border 300ms ease-in-out;
+    transform: translateY(-50%);
+}
+
 .langues > div:hover {
   cursor: pointer;
 }
@@ -105,297 +170,55 @@ li {
   );
 }
 
-
-/**************************
-  Basic Modal Styles
-**************************/
-
-.modal {
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+.flag-animate {
+  opacity: 0;
 }
 
-.modal__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index:10;
+.flag-animate.flag-spain.animate {
+  animation: animateflagspain 0.5s ease forwards;
+  animation-delay: 0.3s;
+}
+.flag-animate.flag-uk.animate {
+  animation: animateflaguk 0.6s ease forwards;
+}
+.flag-animate.flag-france.animate {
+  animation: animateflagfrance 0.5s ease forwards;
+  animation-delay: 0.4s;
 }
 
-.modal__container {
-  @apply rounded-lg;
-  position: relative;
-  background-color: transparent;
-  padding: 0px;
-  height: 75vh;
-  min-height: 75vh;
-  width: 80%;
-  overflow: auto;
-  box-sizing: border-box;
+.bg-blue-550 {
+  background-color: #315bd1;
 }
 
-.modal__header {
-  position: relative;
-  display: block;
-  height: 30px;
-  margin-bottom: 0px;
-  padding: 30px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.modal__footer {
-  position: relative;
-  display: block;
-  margin-bottom: 0px;
-  padding: 20px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height:initial;
-}
-
-@supports (display: flex) {
-  
-  .modal__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:initial;
+@keyframes animateflagfrance {
+  from {
+    opacity: 1;
+    transform: scale(0);
   }
-  
-  .modal__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:initial;
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(25deg); 
   }
-  
 }
 
-.modal__title {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 1.25;
-  color: #00449e;
-  box-sizing: border-box;
-}
-
-.modal__close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  margin: 0px;
-  padding: 0px;
-}
-
-@supports (display: flex) {
-  
-  .modal__title {
-    position: static;
+@keyframes animateflaguk {
+  from {
+    opacity: 1;
+    transform: scale(0);
   }
-  
-  .modal__close {
-    position: static;
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(4deg); 
   }
-  
 }
 
-.modal__header .modal__close:before { content: "\2715"; }
-
-.modal-content-content{
-  padding: 30px;
-  background: #fff;
-}
-
-.modal__content {
-  margin: 0px 0px 20px 0px;
-  color: rgba(0,0,0,.8);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 0px 20px 0px 0px;
-}
-
-.modal__content p {
-  margin-top: 0px;
-}
-
-.modal__btn {
-  font-size: .875rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  background-color: #e6e6e6;
-  color: rgba(0,0,0,.8);
-  border-radius: .25rem;
-  border-style: none;
-  border-width: 0;
-  cursor: pointer;
-  -webkit-appearance: button;
-  text-transform: none;
-  overflow: visible;
-  line-height: 1.15;
-  margin: 0;
-  will-change: transform;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  transition: -webkit-transform .25s ease-out;
-  transition: transform .25s ease-out;
-  transition: transform .25s ease-out,-webkit-transform .25s ease-out;
-}
-
-.modal__btn-primary {
-  background-color: #00449e;
-  color: #fff;
-}
-
-/**************************
-  Demo Animation Style
-**************************/
-
-@keyframes mmfadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
-}
-
-@keyframes mmfadeOut {
-    from { opacity: 1; }
-      to { opacity: 0; }
-}
-
-@keyframes mmslideIn {
-  from { transform: translateY(15%); }
-    to { transform: translateY(0); }
-}
-
-@keyframes mmslideOut {
-    from { transform: translateY(0); }
-    to { transform: translateY(-10%); }
-}
-
-.micromodal-slide {
-  display: none;
-}
-
-.micromodal-slide.is-open {
-  display: block;
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-.micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
-}
-
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
-  will-change: transform;
-}
-
-/**************************
-  Custom styles for individual modals
-**************************/
-
-.modal__container button {
-  outline: none;
-  cursor: pointer !important;
-}
-
-.modal__container h2.modal__title {
-  color: #595959;
-}
-
-.modal__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal__title {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 1.25;
-  color: #00449e;
-  box-sizing: border-box;
-}
-
-.modal__close {
-  font-size: 24px;
-}
-
-.modal__content {
-  color: rgba(0,0,0,.8);
-}
-
-.modal__btn {
-  padding: 10px 15px;
-  background-color: #e6e6e6;
-  border-radius: 4px;
-  -webkit-appearance: none;
-}
-
-/**************************
-  Mobile custom styles for individual modals
-**************************/
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  
-  .modal__container {
-    width: 90% !important;
-    min-width: 90% !important;
+@keyframes animateflagspain {
+  from {
+    opacity: 1;
+    transform: scale(0);
   }
-  
-  @supports (display: flex) {
-  
-    .modal__container {
-      width: 90% !important;
-      min-width: 90% !important;
-      height: 85vh;
-    }
-    
+  to {
+    opacity: 1;
+    transform: scaleX(-1) rotate(20deg);
   }
-  
-  .modal__header {
-    padding: 20px;
-  }
-  
-  .modal-content-content {
-    padding: 20px;
-  }
-  
-  .modal__content {
-    -webkit-overflow-scrolling: touch;
-  }
-  
 }

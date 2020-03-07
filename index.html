@@ -2,321 +2,957 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NATHALIE DESVILLES TRADUCTIONS & FORMATIONS</title>
+  <title>Nathalie Desvilles - Cours de langues - Anglais, Espagnol, Français</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="./dist/styles.css" type="text/css">
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
 </head>
-<body class="bg-grey-100">
-  <div class="container mx-auto relative">
-    <header class="flex flex-col sm:flex-row items-center justify-between py-6 relative">
-        <img class="h-16" src="img/logo.png" />
-        <nav class="hidden md:flex text-lg">
-            <a href="#" class="font-bold text-gray-800 hover:text-blue-300 py-3 px-6">Accueil</a>
-            <a href="#" class="font-bold text-gray-800 hover:text-blue-300 py-3 px-6">Prestations</a>
-            <a href="#" class="font-bold text-gray-800 hover:text-blue-300 py-3 px-6">Témoignages</a>
-            <a href="#" class="font-bold text-gray-800 hover:text-blue-300 py-3 px-6">Contact</a>
-        </nav>
-        <button class="flex md:hidden flex-col absolute top-0 right-0 p-4 mt-5">
-            <span class="w-5 h-px mb-1 bg-orange-500"></span>
-            <span class="w-5 h-px mb-1 bg-orange-500"></span>
-            <span class="w-5 h-px mb-1 bg-orange-500"></span>
-        </button>
-    </header>
+<body class="bg-gray-50">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.3/dist/alpine.js" defer></script>
 
-    <div class="intro-image bg-gray-200 absolute right-0" style="top: 250px; right: 0; width: 70%; height: 70%; z-index: -999; background: url('img/intro.jpg'); background-size: cover; clip-path: url(#svgPath);" ></div>
-    <div class="dots absolute right-0" style="top: 170px; right:20px; width: 70%; height: 70%; z-index: -998"></div>
+  <div class="relative bg-gray-50 overflow-hidden">
+    <div class="hidden lg:block lg:absolute lg:inset-0">
+      <svg class="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8" width="640" height="784" fill="none" viewBox="0 0 640 784">
+        <defs>
+          <pattern id="svg-pattern-squares-desktop" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
+        <rect x="118" width="404" height="784" fill="url(#svg-pattern-squares-desktop)" />
+      </svg>
+    </div>
+    <div x-data="{ open: false }" class="relative pt-6 pb-16 md:pb-20 lg:pb-2 xl:pb-2">
+      <nav class="relative max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6">
+        <div class="flex items-center flex-1">
+          <div class="flex items-center justify-between w-full md:w-auto">
+            <a href="#">
+              <img class="h-16" src="img/logo.png" />
+            </a>
+            <div class="-mr-2 flex items-center md:hidden">
+              <button @click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block text-right">
+          <div class="hidden md:inline-flex md:mr-10 text-lg">
+            <a href="#prestations" class="ml-10 font-bold text-gray-800 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Prestations</a>
+            <a href="#temoignages" class="ml-10 font-bold text-gray-800 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Témoignages</a>
+            <a href="#apropos" class="ml-10 font-bold text-gray-800 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">À propos</a>
+          </div>
+          <span class="inline-flex rounded-full shadow-md">
+            <span class="inline-flex rounded-full shadow-xs">
+              <a href="#contact" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                Contact
+              </a>
+            </span>
+          </span>
+        </div>
+      </nav>
 
+      <div :class="{'block': open, 'hidden': !open}" class="absolute top-0 inset-x-0 p-2 hidden md:hidden">
+        <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="rounded-lg shadow-md transition transform origin-top-right">
+          <div class="rounded-lg bg-white shadow-xs overflow-hidden">
+            <div class="px-5 pt-4 flex items-center justify-between">
+              <div class="-mr-2">
+                <button @click="open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="px-2 pt-2 pb-3">
+              <a href="#prestations" class="mt-1 block px-3 py-2 rounded-md text-base font-bold text-gray-800 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Prestations</a>
+              <a href="#temoignages" class="mt-1 block px-3 py-2 rounded-md text-base font-bold text-gray-800 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Témoignages</a>
+              <a href="#apropos" class="mt-1 block px-3 py-2 rounded-md text-base font-bold text-gray-800 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">À propos</a>
+            </div>
+            <div>
+              <a href="#contact" class="block w-full px-5 py-3 text-center font-bold text-blue-600 bg-gray-50 hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out">
+                Contact
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="flex items-start content-center flex-wrap h-screen-80 w-3/5">
-      <div class="flex flex-col">
-        <p class="text-hero font-display"></p>
-        <p class="text-xl mt-8 font-serif text-gray-700">
-          Je m'appelle <b>Nathalie Desvilles</b> et depuis <i>près de vingt ans</i>, je mets mon expérience au service de personnes désireuses de découvrir ou d'approfondir une langue étrangère aussi bien pour les loisirs, les voyages que pour des activités
-          professionnelles.
-          <button class="mt-12 bg-blue-500 hover:bg-blue-700 text-white font-sans font-bold py-4 px-8 rounded-full shadow-xl">
-            Contactez-moi
-          </button>
-        </p>
+      <div class="mt-8 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-32 xl:mt-32 xl:mb-8">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+          <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+            <p class="text-hello text-6xl xl:text-8xl lg:text-8xl md:text-8xl sm:text-6xl font-display"></p>
+            <p class="mt-12 md:mt-16 text-base mt-8 font-serif text-gray-700 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+              Je m'appelle <b>Nathalie Desvilles</b> et depuis <i>près de vingt ans</i>, je mets mon expérience au service de personnes désireuses de découvrir ou d'approfondir une langue étrangère aussi bien pour les loisirs, les voyages que pour des activités
+              professionnelles.
+            </p>
+            <div class="mt-12 flex md:mt-16 justify-center md:justify-center lg:justify-start">
+              <div class="inline-flex rounded-full shadow sm:mt-0">
+                <a href="#contact" class="inline-flex px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                  Contactez-moi
+                </a>
+              </div>
+              <div class="mt-3 inline-flex rounded-full sm:mt-0 sm:ml-3">
+                <a href="#prestations" class="inline-flex px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full bg-blue-100 text-blue-500 bg-white hover:text-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                  Mes prestations
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+            <svg class="absolute z-10 top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 scale-75 origin-top sm:scale-100 lg:hidden" width="640" height="784" fill="none" viewBox="0 0 640 784">
+              <defs>
+                <pattern id="svg-pattern-squares-mobile" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
+              <rect x="118" width="404" height="784" fill="url(#svg-pattern-squares-mobile)" />
+            </svg>
+            <div class="hidden lg:block lg:absolute lg:inset-0">
+              <svg class="absolute z-0 top-0 left-1/2 transform -translate-x-72 translate-y-12" 
+                  width="600"
+                  height="600"
+                  viewBox="0 0 600 600">      
+                  <g transform="translate(300,300)">
+                    <path d="M75.5,-122.1C106.2,-97.7,145.5,-91,162.7,-69.5C179.9,-48.1,175.1,-11.8,171.4,25.7C167.7,63.3,165.1,102,150.6,145.3C136.1,188.5,109.8,236.3,71.5,250.9C33.2,265.5,-16.9,246.9,-65.6,229.7C-114.2,212.5,-161.4,196.6,-178.1,162.6C-194.8,128.5,-181,76.3,-176.9,32.2C-172.8,-11.9,-178.3,-47.9,-170.1,-82.6C-162,-117.4,-140.2,-150.8,-109.6,-175.3C-78.9,-199.8,-39.5,-215.4,-8.6,-202.1C22.3,-188.8,44.7,-146.5,75.5,-122.1Z" fill="#ebf4ff" />
+                  </g>     
+              </svg>
+            </div>
+<!--             <div class="hidden lg:block lg:absolute lg:inset-0">
+              <svg class="absolute z-0 bottom-1/4 left-1/2 transform -translate-x-56 -translate-y-128" 
+                  width="80"
+                  height="80"
+                  viewBox="-5 -5 110 110">
+                  <circle cx="50" cy="50" r="50" fill-opacity="0" stroke="#d3dfee" stroke-width="2" />
+              </svg>
+            </div> -->
+            <div class="relative mx-auto w-full -mt-12 lg:max-w-md hidden lg:block">
+              <a href="#"><img class="bubble-language bubble-en transition-all transform duration-300 hover:-translate-y-2 left-4 absolute h-24" src="./img/en-bubble.png" alt="Anglais" /></a>
+              <a href="#"><img class="bubble-language bubble-es transition-all transform duration-300 hover:-translate-y-2 right-10 -top-8 absolute h-24" src="./img/es-bubble.png" alt="Espagnol" /></a>
+              <a href="#"><img class="bubble-language bubble-fr transition-all transform duration-300 hover:-translate-y-2 right-2 top-48 absolute h-24" src="./img/fr-bubble.png" alt="Espagnol" /></a>
+              <img class="w-full" src="./img/nathalie.png" alt="Nathalie" />
+            </div>
+          </div>
+          <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+            <svg class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 scale-75 origin-top sm:scale-100 lg:hidden" width="640" height="784" fill="none" viewBox="0 0 640 784">
+              <defs>
+                <pattern id="svg-pattern-squares-mobile" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
+              <rect x="118" width="404" height="784" fill="url(#svg-pattern-squares-mobile)" />
+            </svg>
+            <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+              <button class="relative block w-full rounded-lg overflow-hidden focus:outline-none focus:shadow-outline">
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="width-screen py-24 border-t">
-    <div class="width-screen">
-    <div class="container mx-auto">
-      <h2 class="title text-center mb-10">Témoignages d'élèves</h2>
-    </div>
-      <div class="flex content-center flex-wrap -mx-2 glide">
 
+  <div class="py-12 bg-indigo-50 overflow-hidden md:py-20 lg:py-24">
+    <div class="relative max-w-screen-full">
+      <svg class="absolute top-full right-full transform translate-x-1/3 -translate-y-1/4 lg:translate-x-1/2 xl:-translate-y-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404">
+        <defs>
+          <pattern id="svg-pattern-squares-1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="404" fill="url(#svg-pattern-squares-1)" />
+      </svg>
+
+      <div id="temoignages" class="relative glide">
         <div data-glide-el="track" class="glide__track">
-          <ul class="glide__slides">
-            <li class="glide__slide flex flex-col w-1/3 mx-2 py-16">
-              <div class="border-l-4 border-blue-400 mt-4 md:mt-0 md:ml-6 bg-gray-100 rounded-r-lg shadow-xl p-8 hover:shadow-2xl hover:mb-8">
-                <h3 class="font-bold">¡Muchas gracias!</h3>
-                <p class="py-2 text-gray-700">Ma progression en espagnol avec Nathalie a été très rapide.<br />Sa méthode d'apprentissage, ses
-      fiches synthétiques et son profesionnalisme m'ont été très bénéfiques.</p><br />
-                <div>
-                  <span class="uppercase tracking-wide text-sm text-blue-500 font-bold">Damien</span><span class="text-gray-500"> &bull; élève en 2019</span>
-                </div>
+          <div class="glide__slides">
+            <blockquote class="mt-8 glide__slide">
+              <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-bold text-gray-900">
+                <p>
+                  &ldquo;Ma progression en espagnol avec Nathalie a été très rapide.<br />Sa méthode d'apprentissage, ses
+            fiches synthétiques et son professionnalisme m'ont été très bénéfiques.&rdquo;
+                </p>
               </div>
-               <div class="border-l-4 border-blue-400 mt-8 md:ml-6 bg-gray-100 rounded-r-lg shadow-xl p-8 hover:shadow-2xl">
-                <h3 class="font-bold">Je vois que je progresse</h3>
-                <p class="py-2 text-gray-700">J'apprécie beaucoup les cours avec Nathalie.<br />Grâce à sa méthode très personnalisée, je vois
-      que je progresse.</p><br />
-                <div>
-                  <span class="uppercase tracking-wide text-sm text-blue-500 font-bold">Maxime</span><span class="text-gray-500"> &bull; élève en 2019</span>
+              <footer class="mt-8">
+                <div class="md:flex md:items-center md:justify-center">
+                  <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
+                    <div class="text-base leading-6 font-bold text-gray-900">Damien</div>
+
+                    <svg class="hidden md:block mx-1 h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M11 0h3L9 20H6l5-20z" />
+                    </svg>
+
+                    <div class="text-base leading-6 font-medium text-gray-500">élève en 2019</div>
+                  </div>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="mt-8 glide__slide">
+              <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-bold text-gray-900">
+                <p>
+                  &ldquo;J'apprécie beaucoup les cours avec Nathalie.<br />Grâce à sa méthode très personnalisée, je vois
+        que<br />je progresse.&rdquo;
+                </p>
+              </div>
+              <footer class="mt-8">
+                <div class="md:flex md:items-center md:justify-center">
+                  <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
+                    <div class="text-base leading-6 font-bold text-gray-900">Maxime</div>
+
+                    <svg class="hidden md:block mx-1 h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M11 0h3L9 20H6l5-20z" />
+                    </svg>
+
+                    <div class="text-base leading-6 font-medium text-gray-500">élève en 2019</div>
+                  </div>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="mt-8 glide__slide">
+              <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-bold text-gray-900">
+                <p>
+                  &ldquo;Beaucoup d'échanges oraux. Fiches récapitulatives pour mémoire. Excellent relationnel, très
+        bonne écoute<br />de Nathalie !&rdquo;
+                </p>
+              </div>
+              <footer class="mt-8">
+                <div class="md:flex md:items-center md:justify-center">
+                  <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
+                    <div class="text-base leading-6 font-bold text-gray-900">Stéphanie</div>
+
+                    <svg class="hidden md:block mx-1 h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M11 0h3L9 20H6l5-20z" />
+                    </svg>
+
+                    <div class="text-base leading-6 font-medium text-gray-500">élève en 2019</div>
+                  </div>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="mt-8 glide__slide">
+              <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-bold text-gray-900">
+                <p>
+                  &ldquo;J'ai étudié l'anglais pendant plus de 10 ans de scolarité. J'en garde un souvenir de cours
+        ennuyeux. Résultat, un niveau très faible. Cette formation, par contre, dispensée par Mme Desvilles,
+        m'aura captivé. Elle a su rendre les cours très intéressants en adaptant ceux-ci aux attentes des stagiaires
+        du groupe.&rdquo;
+                </p>
+              </div>
+              <footer class="mt-8">
+                <div class="md:flex md:items-center md:justify-center">
+                  <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
+                    <div class="text-base leading-6 font-bold text-gray-900">Patrice</div>
+
+                    <svg class="hidden md:block mx-1 h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M11 0h3L9 20H6l5-20z" />
+                    </svg>
+
+                    <div class="text-base leading-6 font-medium text-gray-500">élève en 2019</div>
+                  </div>
+                </div>
+              </footer>
+            </blockquote>
+            <blockquote class="mt-8 glide__slide">
+              <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-bold text-gray-900">
+                <p>
+                  &ldquo;Passé 50 ans, le retour à l'école n'est pas toujours chose facile ! J'ai très vite compris que
+        cette formation n'était pas l'école, cela grâce à notre professeur ! Grand merci à Nathalie, son écoute, sa
+        disponibilité, son professionalisme me donnent aujourd'hui l'envie de continuer l'aventure. Bravo !&rdquo;
+                </p>
+              </div>
+              <footer class="mt-8">
+                <div class="md:flex md:items-center md:justify-center">
+                  <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
+                    <div class="text-base leading-6 font-bold text-gray-900">Bernard</div>
+
+                    <svg class="hidden md:block mx-1 h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M11 0h3L9 20H6l5-20z" />
+                    </svg>
+
+                    <div class="text-base leading-6 font-medium text-gray-500">élève en 2019</div>
+                  </div>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="glide__arrows md:block lg:block hidden" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+                <path class="heroicon-ui" fill="#3f83f8" d="M5.41 11H21a1 1 0 0 1 0 2H5.41l5.3 5.3a1 1 0 0 1-1.42 1.4l-7-7a1 1 0 0 1 0-1.4l7-7a1 1 0 0 1 1.42 1.4L5.4 11z"/>
+              </svg>
+            </button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#3f83f8"  viewBox="0 0 24 24" width="32" height="32">
+                <path class="heroicon-ui" d="M18.59 13H3a1 1 0 0 1 0-2h15.59l-5.3-5.3a1 1 0 1 1 1.42-1.4l7 7a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.42-1.4l5.3-5.3z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-16 bg-gray-50 overflow-hidden lg:py-24">
+    <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-screen-xl pb-2 lg:pb-32">
+      <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="svg-pattern-squares-1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#svg-pattern-squares-1)" />
+      </svg>
+
+      <div id="prestations" class="relative text-center">
+        <h3 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+          Mes prestations
+        </h3>
+        <hr class="my-8 w-32 inline-flex border-2 border-blue-600 rounded-full">
+        <p class="max-w-3xl mx-auto text-center font-serif text-xl leading-7 text-gray-700">
+          L'<strong>anglais</strong>, l'<strong>espagnol</strong> et le <strong>français</strong> sont certainement les trois langues principales qui vont vous ouvrir un <strong>cap sur le monde</strong> !
+        </p>
+      </div>
+
+      <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+        <div class="relative">
+          <h4 class="text-2xl mb-8 leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
+            Cours de langue
+          </h4>
+          <p class="mt-3 text-lg leading-7 text-gray-500 font-medium">
+            Les langues sont notre première source de communication.
+            <br />
+            C’est par elles que nous partageons nos idées et nos pensées avec les autres. Et il existe des milliers de langues dans le monde ! Les pays ont leurs propres langues nationales officielles, en plus des langues régionales. Certaines langues sont parlées par des millions de personnes, d’autres seulement par quelques milliers.
+          </p>
+
+          <ul class="mt-10">
+            <li>
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="#FFFFFF" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M9 12A5 5 0 1 1 9 2a5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2zm1-5a1 1 0 0 1 0-2 5 5 0 0 1 5 5v2a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3zm-2-4a1 1 0 0 1 0-2 3 3 0 0 0 0-6 1 1 0 0 1 0-2 5 5 0 0 1 0 10z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h5 class="text-xl leading-6 font-bold text-gray-900">Pour tous les profils et tous les niveaux</h5>
+                  <p class="mt-2 text-base leading-6 font-medium text-gray-500">
+                    Que vous soyez un particulier ou un salarié d'entreprise, que vous souhaitiez apprendre ou progresser pour vos besoins personnels ou vos activités professionnelles, que vous soyez débutant, faux-débutant ou de niveau intermédiaire, vous suivez la formation la mieux adaptée à votre niveau et à vos objectifs.
+                  </p>
                 </div>
               </div>
             </li>
-
-            <li class="glide__slide flex flex-col w-1/3 mx-2 py-16">
-              <div class="border-l-4 border-blue-400 mt-4 md:mt-0 md:ml-6 bg-gray-100 rounded-r-lg shadow-xl p-8 hover:shadow-2xl">
-                <h3 class="font-bold">Excellent relationnel</h3>
-                <p class="py-2 text-gray-700">Beaucoup d'échanges oraux. Fiches récapitulatives pour mémoire. Excellent relationnel, très
-      bonne écoute de Nathalie !</p>
-                <div>
-                  <span class="uppercase tracking-wide text-sm text-blue-500 font-bold">Stéphanie</span><span class="text-gray-500"> &bull; élève en 2019</span>
+            <li class="mt-10">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-300 text-white">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="#FFFFFF" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.46a1 1 0 0 1 1.42-1.42 3 3 0 0 0 4.24 0 1 1 0 0 1 1.42 1.42 5 5 0 0 1-7.08 0zM9 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <div class="border-l-4 border-blue-400 mt-8 md:ml-6 bg-gray-100 rounded-r-lg shadow-xl p-8 hover:shadow-2xl">
-                <h3 class="font-bold">Cours très intéressants</h3>
-                <p class="py-2 text-gray-700">J'ai étudié l'anglais pendant plus de 10 ans de scolarité. J'en garde un souvenir de cours
-      ennuyeux. Résultat, un niveau très faible. Cette formation, par contre, dispensée par Mme Desvilles,
-      m'aura captivé. Elle a su rendre les cours très intéressants en adaptant ceux-ci aux attentes des stagiaires
-      du groupe.</p>
-                <div>
-                  <span class="uppercase tracking-wide text-sm text-blue-500 font-bold">Patrice</span><span class="text-gray-500"> &bull; élève en 2019</span>
+                <div class="ml-4">
+                  <h5 class="text-xl leading-6 font-bold text-gray-900">Des cours « sur mesure »</h5>
+                  <p class="mt-2 text-base leading-6 font-medium text-gray-500">
+                    Tous les cours sont basés sur une approche pragmatique vous permettant d'utiliser rapidement vos connaissances dans la vie privée et/ou professionnelle.
+                  </p>
                 </div>
               </div>
             </li>
-
-            <li class="glide__slide flex flex-col w-1/3 mx-2 py-16">
-              <div class="border-l-4 border-blue-400 mt-4 md:mt-0 md:ml-6 bg-gray-100 rounded-r-lg shadow-xl p-8 hover:shadow-2xl">
-                <h3 class="font-bold">Grand merci</h3>
-                <p class="py-2 text-gray-700">Passé 50 ans, le retour à l'école n'est pas toujours chose facile ! J'ai très vite compris que
-      cette formation n'était pas l'école, cela grâce à notre professeur ! Grand merci à Nathalie, son écoute, sa
-      disponibilité, son professionalisme me donnent aujourd'hui l'envie de continuer l'aventure. Bravo !</p>
-                <div>
-                  <span class="uppercase tracking-wide text-sm text-blue-500 font-bold">Bernard</span><span class="text-gray-500"> &bull; élève en 2019</span>
+            <li class="mt-10">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
+                    <svg class="h-6 w-6" stroke="currentColor" fill="#FFF" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <div class="border-l-4 border-blue-400 mt-8 md:ml-6 bg-gray-100 rounded-r-lg shadow-xl p-8 hover:shadow-2xl">
-                <h3 class="font-bold">Excellent professeur</h3>
-                <p class="py-2 text-gray-700">Excellent professeur qui se met à la portée de l'élève.<br />Content de ma progression !</p>
-                <div>
-                  <span class="uppercase tracking-wide text-sm text-blue-500 font-bold">Pierre</span><span class="text-gray-500"> &bull; élève en 2019</span>
+                <div class="ml-4">
+                  <h5 class="text-xl leading-6 font-bold text-gray-900">Sur site ou à distance</h5>
+                  <p class="mt-2 text-base leading-6 font-medium text-gray-500">
+                    Les formations peuvent se dérouler sur site (entreprise ou au centre) ou à distance via Skype.
+                  </p>
                 </div>
               </div>
             </li>
           </ul>
         </div>
+
+        <div class="mt-10 -mx-4 relative lg:mt-0">
+          <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+            <defs>
+              <pattern id="svg-pattern-squares-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="784" height="404" fill="url(#svg-pattern-squares-2)" />
+          </svg>
+          <img class="relative mx-auto" width="490" src="./img/earth.png" alt="" />
+          <img id="flag-animate" class="flag-france flag-animate absolute w-16 mx-auto" style="top: 155px; right: 155px" src="./img/flags/france.png" alt="" />
+          <img class="flag-animate flag-spain absolute w-16 mx-auto" style="top: 140px; left: 165px" src="./img/flags/spain.png" alt="" />
+          <img class="flag-animate flag-uk absolute w-16 mx-auto" style="top: 97px; right: 205px" src="./img/flags/uk.png" alt="" />
+        </div>
+      </div>
+
+      <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="svg-pattern-squares-3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#svg-pattern-squares-3)" />
+      </svg>
+
+      <div class="relative mt-12 sm:mt-16 lg:mt-32">
+        <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <div class="lg:col-start-2">
+            <h4 class="text-2xl mb-8 leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
+              <img class="inline w-8 align-text-top mx-auto mr-2"" src="./img/flags/uk_round.png" alt="Anglais" /> Anglais 
+            </h4>
+            <p class="mt-3 text-lg font-medium leading-7 text-gray-500">
+              L' anglais arrive en troisième position des langues les plus parlées dans le monde, juste après le mandarin et l’espagnol.
+              <br /><br />
+              Plus de 1,5 milliards de personnes parlent l’anglais dans le monde. Plus de 60 pays l'utilisent comme langue officielle ou co-officielle.<br />
+              Elle est la langue officielle des Nations Unies et des communications aériennes et maritimes.<br /><br />
+              Elle est aussi la langue utilisée dans les échanges commerciaux internationaux et sur internet
+              (80% des données sont en anglais).
+            </p>
+
+            
+          </div>
+
+          <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+            <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+              <defs>
+                <pattern id="svg-pattern-squares-4" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="784" height="404" fill="url(#svg-pattern-squares-4)" />
+            </svg>
+            <div class="mx-16">
+              <ul class="mt-10">
+                <li class="course">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4 mt-3">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Cours d'anglais général</h5>
+                    </div>
+                  </div>
+                </li>
+                <li class="course mt-10">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="#FFFFFF" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M8 7V5c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9c0-1.1.9-2 2-2h4zm8 2H8v10h8V9zm2 0v10h2V9h-2zM6 9H4v10h2V9zm4-2h4V5h-4v2z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4 mt-3">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Cours d'anglais des affaires</h5>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="relative mt-12 lg:mt-32 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <div class="relative">
+            <h4 class="text-2xl mb-8 leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
+              <img class="inline w-8 align-text-top mx-auto mr-2"" src="./img/flags/spain_round.png" alt="Espagne" /> Espagnol
+            </h4>
+            <p class="mt-3 text-lg leading-7 text-gray-500 font-medium">
+              L' espagnol est désormais la langue maternelle d'environ 460 millions de personnes et est utilisé par près de 557 millions de personnes, ce qui la hisse au troisième rang mondial pour le nombre de locuteurs, derrière le chinois mandarin et l'anglais, et au deuxième rang pour le nombre de locuteurs de naissance.
+              <br /><br />
+              C'est la langue officielle dans plus de 22 pays.<br /><br />Rien qu'aux États-Unis, plus de 35 millions de personnes parlent espagnol.
+            </p>
+          </div>
+
+          <div class="mt-10 -mx-4 relative lg:mt-0">
+            <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+              <defs>
+                <pattern id="svg-pattern-squares-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="784" height="404" fill="url(#svg-pattern-squares-2)" />
+            </svg>
+            <div class="mx-16">
+              <ul class="mt-10">
+                <li class="course">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4 mt-3">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Cours d'espagnol général</h5>
+                    </div>
+                  </div>
+                </li>
+                <li class="mt-10 course">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="#FFFFFF" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M8 7V5c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9c0-1.1.9-2 2-2h4zm8 2H8v10h8V9zm2 0v10h2V9h-2zM6 9H4v10h2V9zm4-2h4V5h-4v2z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4 mt-3">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Cours d'espagnol commercial</h5>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404" height="784" fill="none" viewBox="0 0 404 784">
+          <defs>
+            <pattern id="svg-pattern-squares-3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="404" height="784" fill="url(#svg-pattern-squares-3)" />
+        </svg>
+      </div>
+
+      <div class="relative mt-12 sm:mt-16 lg:mt-32">
+        <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <div class="lg:col-start-2">
+            <h4 class="text-2xl mb-8 leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
+              <img class="inline w-8 align-text-top mx-auto mr-2" src="./img/flags/france_round.png" alt="Français" /> Français langue étrangère
+            </h4>
+            <p class="mt-3 text-lg font-medium leading-7 text-gray-500">
+              La langue française est la cinquième langue la plus parlée au monde après le chinois, l’anglais, l’espagnol et l’arabe.
+              <br /><br />
+              Elle est la langue officielle dans 32 États et gouvernements et dans la plupart des organisations internationales.
+              <br /><br />
+              Elle est la langue d'enseignement de plus de 80 millions d'individus sur 36 pays et territoires.
+              <br /><br />
+              Elle est la langue des médias internationaux.
+              <br /><br />
+              Elle est la quatrième langue la plus utilisée sur Internet.
+            </p>
+          </div>
+
+          <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+            <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+              <defs>
+                <pattern id="svg-pattern-squares-4" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="784" height="404" fill="url(#svg-pattern-squares-4)" />
+            </svg>          
+            <div class="mx-16">
+              <ul class="mt-10">
+                <li class="course">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4 mt-3">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Cours de français général</h5>
+                    </div>
+                  </div>
+                </li>
+                <li class="mt-10 course">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="#FFFFFF" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M8 7V5c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9c0-1.1.9-2 2-2h4zm8 2H8v10h8V9zm2 0v10h2V9h-2zM6 9H4v10h2V9zm4-2h4V5h-4v2z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4 mt-3">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Cours de français commercial</h5>
+                    </div>
+                  </div>
+                </li>
+                <li class="mt-10 course">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-400 text-white">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="#FFFFFF" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="ml-4">
+                      <h5 class="text-lg leading-6 font-bold text-gray-900">Remise à niveau en français</h5>
+                      <p class="mt-2 text-base leading-6 font-medium text-gray-500">
+                        N'ayez plus honte de vos lacunes en français, mettez fin aux fautes d'orthographe dans vos courriers privés et professionnels, améliorez votre niveau d'orthographe et d'expression écrite en français avec une remise a niveau basée sur vos besoins et difficultés.
+                        <br /><br />
+                        Préparez également le certificat <strong>Voltaire</strong> pour attester de votre niveau d'écriture en français !
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="width-screen py-20 bg-gray-100">
-    <div class="container mx-auto relative mb-24">
-      <h2 class="title text-center mb-10">Prestations</h2>
-      <div class="font-serif text-xl  text-gray-700">
-        Les langues sont <b>notre première source</b> de communication. 
-        <br /><br />
-        C’est par elles que nous <b>partageons</b> nos idées et nos pensées avec les autres. Et il existe des <i>milliers</i> de langues dans le monde !
-        <br />Les pays ont leurs propres langues nationales officielles, en plus des langues régionales.<br />Certaines langues sont parlées par des <b>millions</b> de personnes, d’autres seulement par quelques milliers.
-        <br /><br />
-        L'<b>anglais</b>, l'<b>espagnol</b> et le <b>français</b> sont certainement les trois langues principales qui
-        vont vous ouvrir un <b>cap sur le monde</b> !
+
+  <div class="relative bg-indigo-50">
+    <div style="background: url('./img/bg-cpf.png') repeat;" class="h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
+      <img class="w-full h-full object-cover" src="./img/cpf.png" alt="CPF" />
+    </div>
+    <div class="relative max-w-screen-xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
+      <div class="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
+        <h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+          Toutes les formations sont <br /> élégibles au CPF !
+        </h2>
+        <p class="mt-6 text-lg leading-7 text-gray-500 font-medium">
+          Consultez vos droits sur <a class="link" href="https://www.moncompteformation.gouv.fr" target="_blank">www.moncompteformation.gouv.fr</a> et financez gratuitement votre formation !
+
+          <div class="mt-12 flex md:mt-16 justify-center md:justify-center lg:justify-start">
+            <div class="inline-flex rounded-full shadow sm:mt-0">
+              <a target="_blank" href="https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/recherche?q=%7B%22nombreOccurences%22:10,%22debutPagination%22:1,%22sort%22:%22SCORE%22,%22filters%22:%7B%22price%22:%7B%22minValue%22:0,%22maxValue%22:10000,%22step%22:500,%22value%22:10000%7D,%22organism%22:%7B%22nom%22:%22DESVILLES%20NATHALIE%20TRADUCTIONS%20FORMATIONS%22%7D%7D,%22where%22:%7B%22area%22:0,%22aroundMe%22:false,%22modality%22:%223%22,%22value%22:%7B%22city%22:%22ROCHECHOUART%22,%22postalCode%22:%2287600%22,%22coordinates%22:%7B%22longitude%22:0.80950665,%22latitude%22:45.793175%7D%7D%7D,%22what%22:%22cours%22%7D" class="inline-flex px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                S'inscrire à une formation
+              </a>
+            </div>
+          </div>
+        </p>
       </div>
+    </div>
+  </div>
 
-        <div class="modal micromodal-slide" id="modal-english" aria-hidden="true">
-          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div id="modal-container" class=" modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-english-title">
-                  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-              <div class="flex bg-white">
-                <div class="background-english flex-wrap text-gray-700 p-8 pr-16" style="background: url('img/langues/anglais-sombre.png');background-size: cover">
-                  <h2 class="title text-white text-left uppercase px-8 py-2">
-                    Anglais
-                  </h2>
-                  <div class="font-serif text-lg text-white p-8">
-                    L’anglais arrive en <b>troisième position</b> des langues les plus parlées dans le monde, juste après le mandarin et l’espagnol.
-                    <br />
-                    <br />
-                    Plus de <i>1,5 milliards</i> de personnes parlent l’anglais dans le monde. Plus de <i>60 pays</i> l'utilisent comme langue officielle ou co-officielle.
-                    <br />
-                    <br />
-                    Elle est la <b>langue officielle</b> des Nations Unies et des communications aériennes et maritimes.
-                    <br />
-                    <br />
-                    Elle est aussi la langue utilisée dans les échanges commerciaux internationaux et sur Internet.
-                  </div>
-                </div>
-                <div class="flex-wrap text-gray-700 px-12 py-2 m-2">
-                  <h2 class="title text-black uppercase py-4">
-                    Formation
-                  </h2>
-                  Que vous soyez débutant, faux-débutant ou de niveau intermédiaire, vous suivez la formation la mieux adaptée à votre niveau et à vos objectifs.
-                  <br /><br />
-                  <div class="text-center">Vous pouvez opter pour</div>
+  <div class="py-8 bg-gray-50 overflow-hidden lg:py-12">
+    <div class="relative max-w-full mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-screen-xl pb-2 lg:pb-32">
+      <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="svg-pattern-squares-1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#svg-pattern-squares-1)" />
+      </svg>
 
-                  <div class="flex lg:items-stretch py-6">
-                    <div class="w-1/2">
-                      <div class="text-gray-700 font-bold text-center p-2">
-                        <img class="w-32 inline pb-4" src="img/casual.png" /><br />
-                        DES COURS D'ANGLAIS GÉNÉRAL
-                      </div>
-                    </div>
-                    <div class="w-1/2 object-center">
-                      <div class="text-gray-700 font-bold text-center p-2">
-                        <img class="w-32 inline pb-4" src="img/business.png" /><br />
-                          DES COURS D'ANGLAIS DES AFFAIRES
-                      </div>
-                    </div>
-                  </div>
-
-
-                  Ensemble, nous élaborons le contenu de votre programme de formation et un planning basé sur un rythme et des besoins d'apprentissage qui sont les vôtres.
-
-                  Tous les cours sont basés sur une approche pragmatique vous permettant d'utiliser rapidement vos connaissances dans la vie privée et/ou professionnelle.
-
-                  <footer id="modal-footer" class="modal__footer w-full">
-                    <div>
-                      
-                    </div>
-                    <button class="mt-4 mb-4 bg-blue-500 hover:bg-blue-700 text-white font-sans font-bold py-4 px-8 rounded-full shadow-xl">
-                      Contactez-moi
-                    </button>
-                  </footer>
-                </div>
+      <div id="apropos" class="relative mt-12 lg:mt-18 lg:flex lg:gap-8 lg:items-center">
+        <div class="relative px-32 lg:w-1/4 lg:px-0">
+          <h2 class="title text-left">À propos</h2>
+          <hr class="my-8 w-32 inline-flex border-2 border-red-600 rounded-full">
+            <div class="mt-8 overflow-hidden">
+            <div class="-mx-8 -mt-8 flex flex-wrap">
+              <div class="px-8 pt-8">
+                <p class="text-2xl leading-8 font-extrabold text-black sm:text-3xl sm:leading-9">
+                  20 ans
+                </p>
+                <p class="text-base leading-6 font-medium text-gray-500">
+                  d'expérience
+                </p>
+              </div>
+              <div class="px-8 pt-8">
+                <p class="text-2xl leading-8 font-extrabold text-black sm:text-3xl sm:leading-9">
+                  3
+                </p>
+                <p class="text-base leading-6 font-medium text-gray-500">
+                  langues
+                </p>
+              </div>
+              <div class="px-8 pt-8">
+                <p class="text-2xl leading-8 font-extrabold text-black sm:text-3xl sm:leading-9">
+                  1 objectif
+                </p>
+                <p class="text-base leading-6 font-medium text-gray-500">
+                  Vous aider à atteindre l'autonomie dans la langue de votre choix
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-      <div class="langues flex my-16 -mx-2 items-start">
-        <div data-micromodal-trigger="modal-english" class="group transition duration-300 ease-in-out translate-x-2 card flex-1 mx-4 rounded-lg shadow-xl p-8 hover:shadow-huge" style="background: url('img/langues/anglais.png'); background-size: cover">
-          <h3 class="transition duration-300 ease-in-out group-hover:-translate-y-6 text-center font-bold text-6xl text-white uppercase absolute bottom-0 left-1">Anglais</h3>
-          <div class="my-8 text-blue-100 opacity-0">
-            L’anglais arrive en troisième position des langues les plus parlées dans le monde, juste après le mandarin et l’espagnol.
-            <br />
-            Plus de 1,5 milliards de personnes parlent l’anglais dans le monde. Plus de 60 pays l'utilisent comme langue officielle ou co-officielle.
-            <br />
-            Elle est la langue officielle des Nations Unies et des communications aériennes et maritimes.
-            <br />
-            Elle est aussi la langue utilisée dans les échanges commerciaux internationaux et sur internet.
-          </div>
-          <div class="discover mt-8 opacity-0">
-            <button data-micromodal-trigger="modal-english" class="bg-white hover:bg-blue-700 text-black font-sans font-bold py-2 px-8 rounded-full shadow-xl">
-              Découvrir
-            </button>
-          </div>
-        </div>
-        <div class="card flex-1 bg-gray-100 mx-4 rounded-lg shadow-xl p-8 hover:shadow-huge" style="background: url('img/langues/espagnol.png'); background-size: cover">
-          <h3 class="text-center font-bold text-6xl text-white uppercase absolute bottom-0 left-1">Espagnol</h3>
-          <div class="my-8 text-blue-100 opacity-0">
-            L’anglais arrive en troisième position des langues les plus parlées dans le monde, juste après le mandarin et l’espagnol.
-            <br />
-            Plus de 1,5 milliards de personnes parlent l’anglais dans le monde. Plus de 60 pays l'utilisent comme langue officielle ou co-officielle.
-            <br />
-            Elle est la langue officielle des Nations Unies et des communications aériennes et maritimes.
-            <br />
-            Elle est aussi la langue utilisée dans les échanges commerciaux internationaux et sur internet.
-          </div>
-          <div class="discover mt-8 opacity-0">
-            <button class="bg-white hover:bg-blue-700 text-black font-sans font-bold py-2 px-8 rounded-full shadow-xl">
-              Découvrir
-            </button>
-          </div>
-        </div>
-        <div class="card flex-1 bg-gray-100 mx-4 rounded-lg shadow-xl p-8 hover:shadow-huge" style="background: url('img/langues/francais.png'); background-size: cover">
-          <h3 class="text-center font-bold text-6xl text-white uppercase absolute bottom-0 left-1">Français</h3>
-          <div class="my-8 text-blue-100 opacity-0">
-            L’anglais arrive en troisième position des langues les plus parlées dans le monde, juste après le mandarin et l’espagnol.
-            <br />
-            Plus de 1,5 milliards de personnes parlent l’anglais dans le monde. Plus de 60 pays l'utilisent comme langue officielle ou co-officielle.
-            <br />
-            Elle est la langue officielle des Nations Unies et des communications aériennes et maritimes.
-            <br />
-            Elle est aussi la langue utilisée dans les échanges commerciaux internationaux et sur internet.
-          </div>
-          <div class="discover mt-8 opacity-0">
-            <button class="bg-white hover:bg-blue-700 text-black font-sans font-bold py-2 px-8 rounded-full shadow-xl">
-              Découvrir
-            </button>
+        <div class="w-full mt-10 -mx-4 relative lg:mt-0 lg:w-3/4">
+          <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+            <defs>
+              <pattern id="svg-pattern-squares-2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="784" height="404" fill="url(#svg-pattern-squares-2)" />
+          </svg>
+          <div class="ml-16">
+            <ul class="mt-10">
+              <li class="about text-lg text-gray-500">
+                <p>
+                  <strong>Nathalie Desvilles Traductions & Formations</strong> est une entreprise unipersonnelle gérée
+                  par Nathalie Desvilles, diplômée en langues étrangères (anglais – espagnol) – Université de Limoges.
+                </p>
+                <br />
+                <p>
+                  Une passion pour les langues étrangères m'a conduite à étudier plusieurs langues et notamment <strong>l'anglais</strong> et
+                  <strong>l'espagnol</strong> et à les pratiquer ensuite au quotidien <i>pendant douze ans</i> dans le cadre d'échanges
+                  commerciaux internationaux au sein d'une entreprise locale.
+                </p>
+                <br />
+                <p>
+                  Depuis <strong>près de vingt ans</strong>, je mets cette expérience au service de personnes désireuses de découvrir ou
+                  d'approfondir une langue étrangère aussi bien pour les loisirs, les voyages que pour des activités
+                  professionnelles.
+                </p>
+                <br />
+                <p>
+                  Comme <strong>chaque apprenant est unique</strong>, je l'accompagne suivant son niveau, son rythme et ses besoins avec
+                  <strong>un seul objectif : l'aider à acquérir un degré supérieur d'autonomie pour faciliter les échanges au quotidien
+                  avec les personnes anglophones, hispanophones et francophones et s'ouvrir sur le monde environnant</strong>.
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+
+      <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="svg-pattern-squares-3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#svg-pattern-squares-3)" />
+      </svg>
     </div>
-    <div class="container mx-auto relative mb-24">
-      <div class="font-serif text-xl text-gray-700">
-        Vous êtes un <b>particulier</b> ou un <b>salarié d'entreprise</b>, vous souhaitez apprendre ou progresser dans une de ces langues pour <i>vos besoins personnels</i> ou vos <i>activités professionnelles</i>, un parcours personnalisé « <b>sur mesure</b> » vous est proposé, vous êtes accompagné(e) <i>tout au long</i> de votre formation !
-        <br /><br />
-        Les prestations peuvent se dérouler sur site (entreprise ou au centre) ou à distance via Skype
-      </div>
-      </div>
   </div>
 
+  <div style="background: linear-gradient(180deg, rgba(249,250,251,1) 0%, rgba(255,248,241,1) 100%);" class="overflow-hidden">
+    <div class="relative max-w-xl mx-auto lg:py-0 px-4 sm:px-6 lg:px-8 lg:max-w-screen-xl pb-2 lg:pb-32 pt-72 lg:pt-48">
 
-  <div class="width-screen">
-    <div class="grid grid-cols-2 mx-auto relative">
-      <div class="bg-blue-100 py-48 text-center">
-        <div class="rounded-lg">
-          <img class="inline w-6/12" src="./img/cpf.png" />
+        <div class="block lg:block lg:absolute lg:inset-0">
+          <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+            <linearGradient id="gradient" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ebf4ff" />
+              <stop offset="50%" stop-color="#c6f6d5" />
+              <stop offset="100%" stop-color="#ebf4ff" />
+            </linearGradient>
+          </svg>
+          <svg class="absolute z-0 top-0 left-0 transform -translate-x-72 -translate-y-128" 
+              width="4000"
+              height="4000"
+              viewBox="0 0 600 600">      
+              <g transform="translate(120,175)">
+                <path d="M103,-141.3C134.7,-118.8,162.5,-90.3,187.4,-51.8C212.4,-13.4,234.6,35,227.9,79.7C221.2,124.4,185.5,165.3,142.7,200.8C99.9,236.2,50,266.1,-1.5,268.1C-52.9,270.1,-105.8,244.3,-146.7,208.2C-187.6,172.2,-216.5,126,-230.1,76.5C-243.8,27.1,-242.2,-25.5,-213.7,-55.8C-185.1,-86.1,-129.6,-94,-89.5,-113.8C-49.4,-133.6,-24.7,-165.3,5.5,-172.9C35.7,-180.4,71.3,-163.8,103,-141.3Z" fill="url(#gradient) #c6f6d5" />
+              </g>     
+          </svg>
+        </div>
+      <svg id="contact" class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="svg-pattern-squares-contact-h" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#svg-pattern-squares-contact-h)" />
+      </svg>
+
+      <div class="relative text-center">
+        <svg class="inline transform -translate-y-16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 512 512" width="72" height="72" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+          <g>
+            <g>
+              <path d="M499.161,170.733L341.257,12.828c-17.091-17.091-44.901-17.091-61.992,0L32.839,259.255
+                c-8.545,8.546-12.818,19.771-12.818,30.996c0,11.225,4.273,22.45,12.818,30.996l39.619,39.619l-43.503,43.503
+                c-1.953,1.953-2.929,4.512-2.929,7.071s0.976,5.118,2.929,7.071c3.905,3.905,10.237,3.906,14.142,0L86.6,375.008l18.119,18.12
+                L2.929,494.919C0.976,496.871,0,499.431,0,501.99c0,2.559,0.976,5.119,2.929,7.071c3.905,3.905,10.237,3.905,14.143,0
+                L118.863,407.27l71.88,71.881c17.092,17.09,44.901,17.09,61.992,0l246.426-246.427C507.44,224.446,512,213.437,512,201.729
+                C512,190.02,507.44,179.012,499.161,170.733z M214.473,470.833c-3.508-1.117-6.811-3.046-9.589-5.824L46.981,307.105
+                c-6.231-6.232-8.263-15.079-6.138-23.036h173.63V470.833z M178.326,264.069l29.653-29.653c3.905-3.905,3.906-10.237,0-14.142
+                c-3.906-3.905-10.237-3.906-14.142,0l-43.796,43.795h-29.135l90.406-90.406c3.904-3.905,3.905-10.237,0-14.143
+                c-3.905-3.905-10.237-3.905-14.143,0L92.622,264.069H56.31l227.769-227.77v203.935c0,13.143-10.692,23.835-23.835,23.835H178.326z
+                 M485.02,218.583L238.593,465.009c-1.271,1.271-2.659,2.352-4.119,3.276V284.069h25.771c24.17,0,43.835-19.664,43.835-43.835
+                v-25.771h114.624l-57.867,57.868c-1.952,1.952-2.929,4.512-2.929,7.071c0,2.56,0.976,5.118,2.929,7.071
+                c3.905,3.905,10.237,3.905,14.143,0l72.002-72.002c0.002-0.002,0.004-0.005,0.006-0.007h41.328
+                C487.381,215.937,486.284,217.32,485.02,218.583z M304.079,194.463V20.833c7.958-2.125,16.805-0.093,23.036,6.138l157.904,157.904
+                c2.732,2.731,4.713,6.01,5.853,9.588H304.079z"/>
+            </g>
+          </g>
+          <g>
+            <g>
+              <path d="M235.79,135.05c-1.86-1.87-4.44-2.93-7.07-2.93c-2.64,0-5.21,1.06-7.07,2.93c-1.86,1.86-2.93,4.43-2.93,7.07
+                c0,2.63,1.07,5.21,2.93,7.07c1.86,1.86,4.43,2.93,7.07,2.93c2.63,0,5.21-1.07,7.07-2.93s2.93-4.44,2.93-7.07
+                C238.72,139.48,237.65,136.91,235.79,135.05z"/>
+            </g>
+          </g>
+          <g>
+            <g>
+              <path d="M17.11,430.35c-1.86-1.86-4.44-2.93-7.07-2.93s-5.21,1.07-7.07,2.93c-1.86,1.86-2.93,4.44-2.93,7.07s1.07,5.21,2.93,7.07
+                c1.86,1.86,4.44,2.93,7.07,2.93c2.64,0,5.21-1.07,7.07-2.93c1.87-1.86,2.93-4.44,2.93-7.07S18.98,432.21,17.11,430.35z"/>
+            </g>
+          </g>
+          <g>
+            <g>
+              <path d="M127.018,449.497c-3.906-3.905-10.238-3.905-14.143,0l-45.416,45.416c-1.952,1.952-2.929,4.512-2.929,7.071
+                c0,2.559,0.976,5.119,2.929,7.072c3.906,3.905,10.238,3.905,14.143,0l45.416-45.416
+                C130.922,459.734,130.922,453.402,127.018,449.497z"/>
+            </g>
+          </g>
+        </svg>
+
+        <h3 class="text-center leading-8 font-extrabold tracking-tight title sm:leading-10">
+          Contactez-moi
+        </h3>
+        <hr class="my-8 w-32 inline-flex border-2 border-blue-600 rounded-full">
+        <p class="max-w-3xl mx-auto text-center font-serif text-xl leading-7 text-gray-900">
+          Si vous avez une demande spécifique ou si vous souhaitez être contacté(e), complétez ce formulaire
+          et je vous répondrai le plus rapidement possible.
+        </p>
+      </div>
+
+      <div class="relative mt-12 lg:mt-18 lg:flex lg:gap-8 lg:items-center">
+
+        <div class="relative px-32 lg:w-1/4 lg:px-0">
+            <!-- <img class="inline" src="img/nathalie-cafe-blob.png" /> -->
+        </div>
+
+        <div class="w-full mt-10 -mx-4 relative lg:mt-0 lg:w-3/4 mb-24 lg:mb-2">
+          <div class="ml-8">
+            <form class="contact w-full max-w-lg">
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-first-name">
+                    Prénom
+                  </label>
+                  <input class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="grid-first-name" type="text">
+                </div>
+                <div class="w-full md:w-1/2 px-3">
+                  <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-last-name">
+                    Nom
+                  </label>
+                  <input class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="grid-last-name" type="text">
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3">
+                  <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-password">
+                    E-mail
+                  </label>
+                  <input class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="email" type="email">
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3">
+                  <label class="block tracking-wide text-gray-700 font-bold mb-2" for="grid-password">
+                    Sujet
+                  </label>
+                  <select id="subject" class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    <option value="Cours d'anglais général">Cours d'anglais général</option>
+                    <option value="Cours d'anglais des affaires">Cours d'anglais des affaires</option>
+                    <option value="Cours d'espagnol général">Cours d'espagnol général</option>
+                    <option value="Cours d'espagnol commercial">Cours d'espagnol commercial</option>
+                    <option value="Cours de français général">Cours de français général</option>
+                    <option value="Cours de français commercial">Cours de français commercial</option>
+                    <option value="Remise à niveau en français">Remise à niveau en français</option>
+                    <option value="Autre demande">Autre demande</option>
+                </select>
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-3">
+                  <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-password">
+                    Message
+                  </label>
+                  <textarea class=" no-resize form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 h-48" id="message"></textarea>
+                </div>
+              </div>
+              <div class="md:flex md:items-center">
+                <div class="w-full py-8 text-center">
+                  <button class="px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10" type="button">
+                    Envoyer
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="bg-white py-48">
-        <div class="text-6xl font-sans font-bold leading-tight pb-4">
-          Toutes les formations sont éligibles au CPF
-        </div>
-        <div class="font-serif text-xl text-gray-700">
-          Grâce à votre compte CPF, vous pouvez financer gratuitement votre formation.
-          <br />
-          Consultez vos droits sur www.moncompteformation.gouv.fr
-        </div>
-      </div>
+
+      <svg class="hidden lg:block absolute right-full transform translate-x-1/2 -translate-y-32" width="404" height="784" fill="none" viewBox="0 0 404 784">
+        <defs>
+          <pattern id="svg-pattern-squares-contact" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="4" height="4" class="text-blue-400" fill="currentColor" />
+          </pattern>
+        </defs>
+        <rect width="404" height="784" fill="url(#svg-pattern-squares-contact)" />
+      </svg>
     </div>
   </div>
   
+  <div class="bg-gray-800 text-white pb-12">
+    <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+      <nav class="-mx-5 -my-2 py-12 flex flex-wrap justify-center">
+        <div class="px-5 py-2">
+          <a href="#prestations" class="text-base leading-6 text-gray-400 hover:text-gray-500">
+            Prestations
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="#temoignages" class="text-base leading-6 text-gray-400 hover:text-gray-500">
+            Témoignages
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="#apropos" class="text-base leading-6 text-gray-400 hover:text-gray-500">
+            À propos
+          </a>
+        </div>
+        <div class="px-5 py-2">
+          <a href="#contact" class="text-base leading-6 text-gray-400 hover:text-gray-500">
+            Contact
+          </a>
+        </div>
+      </nav>
 
-
-  <div class="container mx-auto relative">
-    <h2 class="title text-center mb-10">A propos</h2>
-    <div class="text-xl mt-8 font-serif text-gray-700">
-      <p>
-        NATHALIE DESVILLES TRADUCTIONS & FORMATIONS est une entrepise unipersonnelle gérée
-        par Nathalie Desvilles, diplômée en langues étrangères (anglais – espagnol) – Université de Limoges.
-      </p>
-      <p>
-        Une passion pour les langues étrangères m'a conduite à étudier plusieurs langues et notamment l'anglais et
-        l'espagnol et à les pratiquer ensuite au quotidien pendant douze ans dans le cadre d'échanges
-        commerciaux internationaux au sein d'une entreprise locale.
-      </p>
-      <p>
-        Depuis près de vingt ans, je mets cette expérience au service de personnes désireuses de découvrir ou
-        d'approfondir une langue étrangère aussi bien pour les loisirs, les voyages que pour des activités
-        professionnelles.
-      </p>
-      <p>
-        Comme chaque apprenant est unique, je l'accompagne suivant son niveau, son rythme et ses besoins avec
-        un seul objectif : l'aider à acquérir un degré supérieur d'autonomie pour faciliter les échanges au quotidien
-        avec les personnes anglophones, hispanophones et francophones et s'ouvrir sur le monde environnant.
-      </p>
+      <div class="mt-8 text-center">
+        <div class="grid grid-cols-2 gap-8 pb-24">
+          <div class="text-right">
+            <img class="inline h-16" src="img/logo-white.png" />
+          </div>
+          <div class="inline text-left border-l border-white pl-8">
+            LOU MAUPAS – 87600 ROCHECHOUART<br />
+            06.79.51.33.55<br />
+            <a href="mailto:n.desvilles@orange.fr">n.desvilles@orange.fr</a>
+          </div>
+        </div>
+        <p class="text-center text-base leading-6 text-gray-400">
+          <div class="inline text-base leading-6 font-medium text-gray-400">Numéro Siret : 51944137200017 – Code APE : 8559A </div>
+          <svg class="hidden md:inline mx-1 h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M11 0h3L9 20H6l5-20z" />
+          </svg>
+          <div class="inline text-base leading-6 font-medium text-gray-400">Numéro de déclaration d'activité : 74 87 01257 87</div>
+        </p>
+        <p class="text-center text-base leading-6 text-gray-400 mt-6">
+          &copy; 2020 Nathalie Desvilles, Traductions & Formations.
+        </p>
+      </div>
     </div>
   </div>
-  
 
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <script src="./dist/main.js"></script>
-
-<svg
-  width="400"
-  height="400"
-  viewBox="0 0 600 600"
-  xmlns="http://www.w3.org/2000/svg"
-  style="position:absolute; top: -10000px"
->
-  <clipPath id="svgPath"
-   transform="translate(500 250) scale(1.6 1.6)">
-    <path d="M101.1,-90.6C138.1,-64.1,180.1,-32.1,196.3,16.3C212.6,64.6,203.2,129.2,166.2,146.2C129.2,163.2,64.6,132.6,11.7,120.9C-41.2,109.2,-82.5,116.5,-126.7,99.5C-170.8,82.5,-217.9,41.2,-218.4,-0.5C-218.9,-42.2,-172.7,-84.4,-128.5,-110.9C-84.4,-137.4,-42.2,-148.2,-5.1,-143.1C32.1,-138.1,64.1,-117.1,101.1,-90.6Z" />
-  </clipPath>
-</svg>
 </body>
 </html>
