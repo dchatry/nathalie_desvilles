@@ -19,9 +19,9 @@ module.exports = {
       '-8': '-2rem',
     },
     fontFamily: {
-      'sans': ['PT\\ Sans', '-apple-system'],
+      'sans': ['PT\\ Sans', 'Helvetica', '-apple-system'],
       'serif': ['Gelasio', 'Georgia', 'Cambria'],
-      'display': ['PT\\ Sans'],
+      'display': ['PT\\ Sans', 'Helvetica'],
     },
     extend: {
       boxShadow: {

@@ -7,6 +7,24 @@
   <link rel="stylesheet" href="./dist/styles.css" type="text/css">
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gelasio:400,400i,600|PT+Sans:400,700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="./img/favicon.ico/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./img/favicon.ico/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./img/favicon.ico/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./img/favicon.ico/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./img/favicon.ico/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./img/favicon.ico/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./img/favicon.ico/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./img/favicon.ico/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.ico/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="./img/favicon.ico/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon.ico/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon.ico/favicon-16x16.png">
+  <link rel="manifest" href="./img/favicon.ico/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 </head>
 <body class="bg-gray-50">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.3/dist/alpine.js" defer></script>
@@ -122,14 +140,6 @@
                   </g>     
               </svg>
             </div>
-<!--             <div class="hidden lg:block lg:absolute lg:inset-0">
-              <svg class="absolute z-0 bottom-1/4 left-1/2 transform -translate-x-56 -translate-y-128" 
-                  width="80"
-                  height="80"
-                  viewBox="-5 -5 110 110">
-                  <circle cx="50" cy="50" r="50" fill-opacity="0" stroke="#d3dfee" stroke-width="2" />
-              </svg>
-            </div> -->
             <div class="relative mx-auto w-full -mt-12 lg:max-w-md hidden lg:block">
               <a href="#"><img class="bubble-language bubble-en transition-all transform duration-300 hover:-translate-y-2 left-4 absolute h-24" src="./img/en-bubble.png" alt="Anglais" /></a>
               <a href="#"><img class="bubble-language bubble-es transition-all transform duration-300 hover:-translate-y-2 right-10 -top-8 absolute h-24" src="./img/es-bubble.png" alt="Espagnol" /></a>
@@ -437,7 +447,7 @@
             </svg>
             <div class="mx-16">
               <ul class="mt-10">
-                <li class="course">
+                <li id="anglais-general" class="course">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
@@ -451,7 +461,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="course mt-10">
+                <li id="anglais-affaires" class="course mt-10">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
@@ -494,7 +504,7 @@
             </svg>
             <div class="mx-16">
               <ul class="mt-10">
-                <li class="course">
+                <li id="espagnol-general" class="course">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
@@ -508,7 +518,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="mt-10 course">
+                <li id="espagnol-commercial" class="mt-10 course">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
@@ -567,7 +577,7 @@
             </svg>          
             <div class="mx-16">
               <ul class="mt-10">
-                <li class="course">
+                <li id="francais-general" class="course">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-500 text-white">
@@ -581,7 +591,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="mt-10 course">
+                <li id="francais-commercial" class="mt-10 course">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-500 text-white">
@@ -595,7 +605,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="mt-10 course">
+                <li id="remise-a-niveau-francais" class="mt-10 course">
                   <div class="flex">
                     <div class="flex-shrink-0">
                       <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-400 text-white">
@@ -831,7 +841,7 @@
         </div>
 
         <div class="w-full mt-10 -mx-4 relative lg:mt-0 lg:w-3/4 mb-24 lg:mb-2">
-          <div class="ml-8">
+          <div class="ml-8 lg:ml-16">
             <form class="contact w-full max-w-lg">
               <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -861,14 +871,14 @@
                     Sujet
                   </label>
                   <select id="subject" class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                    <option value="Cours d'anglais général">Cours d'anglais général</option>
-                    <option value="Cours d'anglais des affaires">Cours d'anglais des affaires</option>
-                    <option value="Cours d'espagnol général">Cours d'espagnol général</option>
-                    <option value="Cours d'espagnol commercial">Cours d'espagnol commercial</option>
-                    <option value="Cours de français général">Cours de français général</option>
-                    <option value="Cours de français commercial">Cours de français commercial</option>
-                    <option value="Remise à niveau en français">Remise à niveau en français</option>
-                    <option value="Autre demande">Autre demande</option>
+                    <option value="anglais-general">Cours d'anglais général</option>
+                    <option value="anglais-affaires">Cours d'anglais des affaires</option>
+                    <option value="espagnol-general">Cours d'espagnol général</option>
+                    <option value="espagnol-commercial">Cours d'espagnol commercial</option>
+                    <option value="francais-general">Cours de français général</option>
+                    <option value="francais-commercial">Cours de français commercial</option>
+                    <option value="remise-a-niveau-francais">Remise à niveau en français</option>
+                    <option value="autre">Autre demande</option>
                 </select>
                 </div>
               </div>

@@ -12,6 +12,15 @@ $(document).on('click', 'a[href^="#"]', function (event) {
     }, 1000);
 });
 
+
+$(document).on('click', '.course', function (event) {
+    event.preventDefault();
+    $('html, body').animate({
+        scrollTop: $('#contact').offset().top + 350
+    }, 1000);
+    $('#subject').val($(this).attr('id'));
+});
+
 /*
  * Carousel.
  */
