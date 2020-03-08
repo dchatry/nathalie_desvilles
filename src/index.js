@@ -1,4 +1,3 @@
-import "../styles.css"
 import $ from "jquery";
 import Glide from '@glidejs/glide'
 import TypeIt from 'typeit';
