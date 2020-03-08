@@ -63,12 +63,40 @@ a.link {
 }
 
 .about {
-  @apply bg-white;
-  @apply shadow-xl;
-  @apply p-12;
+  @apply bg-transparent;
+  @apply shadow-none;
+  @apply p-1;
   @apply rounded-lg;
   @apply transform;
   @apply font-medium;
+}
+
+@screen lg {
+  .about {
+    @apply bg-white;
+    @apply shadow-xl;
+    @apply rounded-lg;
+    @apply transform;
+    @apply p-12;
+  }
+}
+@screen md {
+  .about {
+    @apply bg-white;
+    @apply shadow-xl;
+    @apply rounded-lg;
+    @apply transform;
+    @apply p-12;
+  }
+}
+@screen sm {
+  .about {
+    @apply bg-transparent;
+    @apply shadow-none;
+    @apply rounded-lg;
+    @apply transform;
+    @apply p-1;
+  }
 }
 
 .h-screen-80 {
