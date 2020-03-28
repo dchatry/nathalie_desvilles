@@ -20,7 +20,7 @@ module.exports = {
     },
     fontFamily: {
       'sans': ['PT\\ Sans', 'Helvetica', '-apple-system'],
-      'serif': ['Georgia', 'Cambria'],
+      'serif': ['Gelasio', 'Georgia', 'Cambria'],
       'display': ['PT\\ Sans', 'Helvetica'],
     },
     extend: {

@@ -11,7 +11,6 @@ $(document).on('click', 'a[href^="#"]', function (event) {
     }, 1000);
 });
 
-
 $(document).on('click', '.course', function (event) {
     event.preventDefault();
     $('html, body').animate({
@@ -19,6 +18,22 @@ $(document).on('click', '.course', function (event) {
     }, 1000);
     $('#subject').val($(this).attr('id'));
 });
+
+/*
+ * COntact form.
+ */
+var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
+document.getElementById('send').addEventListener("click", function() {
+  Email.send({
+      SecureToken : "9de8393a-8450-4a78-b299-feaa59e24d9e",
+      To : 'contact.nathalie.desvilles@gmail.com',
+      From : "contact.nathalie.desvilles@gmail.com",
+      Subject : "This is the subject",
+      Body : "And this is the body"
+  }).then(
+    message => alert(message)
+  );
+}); 
 
 /*
  * Carousel.
