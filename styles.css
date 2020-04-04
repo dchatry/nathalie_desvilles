@@ -31,11 +31,40 @@
   font-weight: bold;
 }
 
+#contact_form.sent {
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  @apply bg-blue-500;
+}
+#contact_form.sent #form_elements {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+}
+
 a.link {
-  text-decoration-thickness: .125em;
-  text-underline-offset: 1.5px;
-  text-decoration: underline;
-  @apply text-blue-600;
+  font-weight: bold;
+  transition: all ease 0.3s;
+  border-bottom: dashed 1px #3f83f8;
+  @apply text-gray-600;
+}
+a.link:hover {
+  @apply text-gray-800;
+}
+a.link-clear {
+  font-weight: bold;
+  transition: all ease 0.3s;
+  border-bottom: dashed 1px #3f83f8;
+  @apply text-gray-100;
+}
+a.link-clear:hover {
+  @apply text-gray-200;
 }
 
 .contact {
