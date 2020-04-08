@@ -37,7 +37,7 @@
   -ms-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
-  @apply bg-blue-500;
+  @apply bg-white;
 }
 #contact_form.sent #form_elements {
   -webkit-transition: 0.5s;
@@ -46,6 +46,28 @@
   -o-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
+}
+
+#status_message {
+  -webkit-transition: opacity ease 3s;
+  -moz-transition: opacity ease 3s;
+  -ms-transition: opacity ease 3s;
+  -o-transition: opacity ease 3s;
+  transition: opacity ease 3s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#loading_message {
+  -webkit-transition: all 3s;
+  -moz-transition: all 3s;
+  -ms-transition: all 3s;
+  -o-transition: all 3s;
+  transition: all 3s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 a.link {

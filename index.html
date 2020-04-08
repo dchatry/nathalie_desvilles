@@ -20,22 +20,15 @@
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="57x57" href="./img/favicon.ico/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="./img/favicon.ico/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="./img/favicon.ico/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="./img/favicon.ico/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="./img/favicon.ico/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="./img/favicon.ico/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="./img/favicon.ico/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="./img/favicon.ico/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.ico/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="./img/favicon.ico/android-icon-192x192.png">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.ico/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.ico/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon.ico/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon.ico/favicon-16x16.png">
-  <link rel="manifest" href="./img/favicon.ico/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
+  <link rel="manifest" href="./img/favicon.ico/site.webmanifest">
+  <link rel="mask-icon" href="./img/favicon.ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="./img/favicon.ico/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="./img/favicon.ico/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 </head>
 <body class="bg-gray-50">
@@ -339,7 +332,7 @@
     </div>
     <div class="bg-gray-50 p-20 relative">
       <h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
-        Toutes les formations sont <br /> élégibles au CPF !
+        Toutes les formations sont <br /> éligibles au CPF !
       </h2>
       <p class="mt-6 text-lg leading-7 text-gray-600 font-medium">
         Consultez vos droits sur <a class="link" href="https://www.moncompteformation.gouv.fr" target="_blank">www.moncompteformation.gouv.fr</a> et financez gratuitement votre formation !
@@ -927,7 +920,27 @@
 
         <div class="w-full mt-10 -mx-4 relative lg:mt-0 lg:w-3/4 mb-24 lg:mb-2">
           <div class="ml-8 lg:ml-16">
-            <form id="contact_form" class="contact w-full max-w-lg">
+            <form id="contact_form" class="contact relative w-full max-w-lg">
+              <div id="status_message" class="hidden opacity-0 absolute text-center">
+                <svg class="inline" xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24"><path fill="#48bb78" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.25 8.891l-1.421-1.409-6.105 6.218-3.078-2.937-1.396 1.436 4.5 4.319 7.5-7.627z"/></svg>
+                <div class="text-center mt-6 text-green-500 font-bold">Votre message a bien été envoyé !</div>
+              </div>
+              <div id="loading_message" class="hidden absolute text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120px" height="120px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                  <rect x="17.5" y="30" width="15" height="40" fill="#f3b72e">
+                    <animate attributeName="y" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="18;30;30" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.2s"></animate>
+                    <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="64;40;40" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.2s"></animate>
+                  </rect>
+                  <rect x="42.5" y="30" width="15" height="40" fill="#3869c5">
+                    <animate attributeName="y" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="20.999999999999996;30;30" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.1s"></animate>
+                    <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="58.00000000000001;40;40" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.1s"></animate>
+                  </rect>
+                  <rect x="67.5" y="30" width="15" height="40" fill="#4686f4">
+                    <animate attributeName="y" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="20.999999999999996;30;30" keySplines="0 0.5 0.5 1;0 0.5 0.5 1"></animate>
+                    <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="58.00000000000001;40;40" keySplines="0 0.5 0.5 1;0 0.5 0.5 1"></animate>
+                  </rect>
+                </svg>
+              </div>
               <div id="form_elements">
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

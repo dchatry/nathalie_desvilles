@@ -25,7 +25,7 @@ function validateEmail(email) {
 }
 
 /*
- * COntact form.
+ * Contact form.
  */
 var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
 document.querySelector("#contact_form").addEventListener("submit", function(e){  
@@ -72,19 +72,29 @@ document.querySelector("#contact_form").addEventListener("submit", function(e){
   }
 
   document.getElementById('contact_form').classList.add('sent');
+  document.getElementById('loading_message').classList.remove("hidden");
+
 
   /*
    * Send e-mail.
    */
-  // Email.send({
-  //     SecureToken : "ca2ef19a-5b0a-49a7-8958-704206d03675",
-  //     To : "contact.nathalie.desvilles@gmail.com",
-  //     From : "contact.nathalie.desvilles@gmail.com",
-  //     Subject : "Formulaire de contact : " + subject,
-  //     Body : "<b>Nom</b> : <br /><b>Prénom</b> : <br /><b>E-mail</b> : <br /><br /><b>Message</b> : "
-  // }).then(
-  //   message => alert(message)
-  // );
+  Email.send({
+      SecureToken : "ca2ef19a-5b0a-49a7-8958-704206d03675",
+      To : "contact.nathalie.desvilles@gmail.com",
+      From : "contact.nathalie.desvilles@gmail.com",
+      Subject : "Formulaire de contact : " + subject,
+      Body : `<b>Nom</b> : ${lastname}<br /><b>Prénom</b> : ${firstname}<br /><b>E-mail</b> : ${email}<br /><br /><b>Message</b> : ${message}`
+  }).then(
+    message => {
+      document.getElementById('loading_message').classList.add("hidden");
+      let height = document.getElementById('form_elements').offsetHeight;
+      document.getElementById('form_elements').innerHTML = "";
+      document.getElementById('form_elements').style.height = height + "px";
+      document.getElementById('status_message').classList.remove("hidden");
+      document.getElementById('status_message').style.opacity = 100;
+      console.log(message)
+    }
+  );
   /*
    * Prevent form from submitting.
    */
@@ -107,7 +117,7 @@ new Glide('.glide', {
  * Greetings.
  */
 var greetings = [
-  "Hi!",
+  "Hi there!",
   "Hello!",
   "Bonjour !",
   "¡Hola!",
