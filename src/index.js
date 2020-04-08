@@ -79,11 +79,11 @@ document.querySelector("#contact_form").addEventListener("submit", function(e){
    * Send e-mail.
    */
   Email.send({
-      SecureToken : "ca2ef19a-5b0a-49a7-8958-704206d03675",
+      SecureToken : "f7eaaa36-e96f-47b9-a93d-421526df9775",
       To : "contact.nathalie.desvilles@gmail.com",
       From : "contact.nathalie.desvilles@gmail.com",
       Subject : "Formulaire de contact : " + subject,
-      Body : `<b>Nom</b> : ${lastname}<br /><b>Prénom</b> : ${firstname}<br /><b>E-mail</b> : ${email}<br /><br /><b>Message</b> : ${message}`
+      Body : `<b>Nom</b> : ${lastname}<br /><b>Prénom</b> : ${firstname}<br /><b>Sujet</b> : ${subject}<br /><b>E-mail</b> : ${email}<br /><br /><b>Message</b> : ${message}`
   }).then(
     message => {
       document.getElementById('loading_message').classList.add("hidden");
