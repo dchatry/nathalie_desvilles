@@ -92,7 +92,6 @@ document.querySelector("#contact_form").addEventListener("submit", function(e){
       document.getElementById('form_elements').style.height = height + "px";
       document.getElementById('status_message').classList.remove("hidden");
       document.getElementById('status_message').style.opacity = 100;
-      console.log(message)
     }
   );
   /*

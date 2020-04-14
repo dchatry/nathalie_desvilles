@@ -15,7 +15,7 @@
     transform: translatey(0px);
   }
 }
-
+/* purgecss start ignore */
 .bubble-language {
   animation: float 4s ease-in-out infinite;
 }
@@ -274,3 +274,4 @@ a.link-clear:hover {
     transform: scaleX(-1) rotate(20deg);
   }
 }
+/* purgecss end ignore */
