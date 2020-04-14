@@ -4,6 +4,7 @@
   "description": "Site internet de présentation",
   "private": true,
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
     "@glidejs/glide": "^3.4.1",
     "@tailwindcss/ui": "^0.1.2",
     "autoprefixer": "^9.7.4",
