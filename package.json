@@ -8,7 +8,7 @@
     "@glidejs/glide": "^3.4.1",
     "@tailwindcss/ui": "^0.1.2",
     "autoprefixer": "^9.7.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "typeit": "^6.1.1",
     "underscore": "^1.9.2"
   },
