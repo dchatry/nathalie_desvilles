@@ -283,7 +283,7 @@
               Je dispense des cours d'<b>anglais</b>, <b>espagnol</b> et <b>français</b> à Limoges, Saint-Junien et Rochechouart, éligibles au CPF, pour tous profils et niveaux, sur site ou à distance.
             </p>
             <div class="mt-12 flex md:mt-16 justify-center md:justify-center lg:justify-start">
-              <div class="mt-3 inline-flex rounded-full shadow sm:mt-0">
+              <div class="z-10 mt-3 inline-flex rounded-full shadow sm:mt-0">
                 <a href="#contact" class="inline-flex px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                   Contactez-moi
                 </a>
@@ -1119,102 +1119,19 @@
         </h3>
         <hr class="my-8 w-32 inline-flex border-2 border-blue-600 rounded-full">
         <p class="max-w-3xl mx-auto text-center font-serif text-xl leading-7 text-gray-900">
-          Si vous avez une demande spécifique ou si vous souhaitez être contacté(e), complétez ce formulaire
+          Si vous avez une demande spécifique ou si vous souhaitez être contacté(e), envoyez moi un e-mail en cliquant sur le bouton ci-dessous
           et je vous répondrai le plus rapidement possible.
         </p>
       </div>
 
-      <div class="relative mt-12 lg:mt-18 lg:flex lg:gap-8 lg:items-center">
-
-        <div class="relative px-32 lg:w-1/4 lg:px-0">
-            <!-- <img class="inline" src="img/nathalie-cafe-blob.png" /> -->
-        </div>
-
-        <div class="w-full mt-10 -mx-4 relative lg:mt-0 lg:w-3/4 mb-24 lg:mb-2">
-          <div class="ml-8 lg:ml-16">
-            <form id="contact_form" class="contact relative w-full max-w-lg">
-              <div id="status_message" class="hidden opacity-0 absolute text-center">
-                <svg class="inline" xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24"><path fill="#48bb78" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.25 8.891l-1.421-1.409-6.105 6.218-3.078-2.937-1.396 1.436 4.5 4.319 7.5-7.627z"/></svg>
-                <div class="text-center mt-6 text-green-500 font-bold">Votre message a bien été envoyé !</div>
-              </div>
-              <div id="loading_message" class="hidden absolute text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120px" height="120px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-                  <rect x="17.5" y="30" width="15" height="40" fill="#f3b72e">
-                    <animate attributeName="y" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="18;30;30" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.2s"></animate>
-                    <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="64;40;40" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.2s"></animate>
-                  </rect>
-                  <rect x="42.5" y="30" width="15" height="40" fill="#3869c5">
-                    <animate attributeName="y" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="20.999999999999996;30;30" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.1s"></animate>
-                    <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="58.00000000000001;40;40" keySplines="0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.1s"></animate>
-                  </rect>
-                  <rect x="67.5" y="30" width="15" height="40" fill="#4686f4">
-                    <animate attributeName="y" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="20.999999999999996;30;30" keySplines="0 0.5 0.5 1;0 0.5 0.5 1"></animate>
-                    <animate attributeName="height" repeatCount="indefinite" dur="1s" calcMode="spline" keyTimes="0;0.5;1" values="58.00000000000001;40;40" keySplines="0 0.5 0.5 1;0 0.5 0.5 1"></animate>
-                  </rect>
-                </svg>
-              </div>
-              <div id="form_elements">
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-first-name">
-                      Prénom
-                    </label>
-                    <input required id="contact_firstname" class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="grid-first-name" type="text">
-                  </div>
-                  <div class="w-full md:w-1/2 px-3">
-                    <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-last-name">
-                      Nom
-                    </label>
-                    <input required id="contact_lastname" class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="grid-last-name" type="text">
-                  </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full px-3">
-                    <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-password">
-                      E-mail
-                    </label>
-                    <input required id="contact_email" class="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" id="email" type="email">
-                  </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full px-3">
-                    <label class="block tracking-wide text-gray-700 font-bold mb-2" for="grid-password">
-                      Sujet
-                    </label>
-                    <select id="contact_subject" class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                      <option value="anglais-general">Cours d'anglais général</option>
-                      <option value="anglais-affaires">Cours d'anglais des affaires</option>
-                      <option value="espagnol-general">Cours d'espagnol général</option>
-                      <option value="espagnol-commercial">Cours d'espagnol commercial</option>
-                      <option value="francais-general">Cours de français général</option>
-                      <option value="francais-commercial">Cours de français commercial</option>
-                      <option value="remise-a-niveau-francais">Remise à niveau en français</option>
-                      <option value="service-traduction">Service de traductions</option>
-                      <option value="autre">Autre demande</option>
-                  </select>
-                  </div>
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full px-3">
-                    <label class="block tracking-wide text-gray-700  font-bold mb-2" for="grid-password">
-                      Message
-                    </label>
-                    <textarea required id="contact_message" class="no-resize form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 h-48" id="message"></textarea>
-                  </div>
-                </div>
-                <div class="md:flex md:items-center">
-                  <div class="w-full py-8 text-center">
-                    <button id="send" class="px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10" type="submit">
-                      Envoyer
-                    </button>
-                  </div>
-                </div>
-                <div id="invalid_message" class="hidden p-4 bg-red-200 border-red-600 bold text-red-600 rounded-md">
-                  Avant d'envoyer, merci de vérifier les champs suivants :
-                  <p id="invalid"></p>
-                </div>
-              </div>
-            </form>
+      <div class="relative mt-6 lg:mt-18 lg:flex lg:gap-8 lg:items-center">
+        <div class="w-full mb-12">
+            <div class="mt-12 flex md:mt-16 justify-center md:justify-center lg:justify-center">
+              <div class="mt-3 inline-flex rounded-full shadow sm:mt-0">
+                <a href="mailto:n.desvilles@orange.fr" class="inline-flex px-8 py-3 border border-transparent text-base leading-6 font-bold rounded-full text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                  Envoyer un e-mail
+                </a>
+            </div>
           </div>
         </div>
       </div>
