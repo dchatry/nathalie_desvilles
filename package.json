@@ -10,7 +10,7 @@
     "autoprefixer": "^9.7.4",
     "jquery": "^3.4.1",
     "typeit": "^6.1.1",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "css-loader": "^3.4.2",
